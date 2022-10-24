@@ -24,12 +24,30 @@
   margin: 0 auto;
 }
 
+/* @media (max-width: 430px){
+  .container{
+  padding: 10px;
+  border-radius: 0px;
+  box-shadow: none;
+  width: 100%;
+  /* height: 100% */
+  /* } */
+/* } */ 
 
 .input-form-direction {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column
+}
+
+@media (max-width: 430px){
+  .input-form-direction {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column
+  }
 }
 
 .phone-form-active {

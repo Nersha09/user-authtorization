@@ -1,23 +1,22 @@
+import { Route, Routes} from 'react-router-dom';
 import './styles/App.css';
-import { Typography } from '@mui/material';
 
-import InputsForm from './componets/InputsForm'
-import PhoneConfirmForm from './componets/PhoneConfirmForm';
+import SingUp from './pages/SingUp';
+import AddLocation from './pages/AddLocation';
+import PhoneConfirmForm from './pages/PhoneConfirmForm';
+import ConfirmReg from './pages/ConfirmReg';
+
 
 function App() {
 return (
-  <div className='container'>
-    <Typography 
-      sx={{textAlign: 'center'}}
-      color={'DimGrey'} 
-      mb={5} 
-      variant='h4'
-    >
-        Регистрация
-    </Typography>
-    <InputsForm/>
-    {/* <PhoneConfirmForm/> */}
-  </div>
+  <>
+    <Routes>
+      <Route index path='/sign-up' element={<SingUp/>}/>
+      <Route path='/addlocation' element={<AddLocation/>}/>
+      <Route path='/phone-confirm' element={<PhoneConfirmForm/>}/>
+      <Route path='/confirmReg' element={<ConfirmReg/>}/>
+    </Routes>
+  </>
   );
 }
 
