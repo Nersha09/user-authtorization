@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit"
 import stepReduser from './slices/stepSlice'
 import phoneConfirmReduser from './slices/phoneCofirmSlice'
 

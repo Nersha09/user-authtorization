@@ -1,4 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit"
+
+// Глобальное состояние однотипных этапов регистрации
 const initialState = {
     signUp: [
         {value: '', name:'Логин', type: 'text', required: true},
@@ -19,7 +21,6 @@ const stepSlice = createSlice({
     initialState,
     reducers: {
         setSignUp: (state, action) => {
-            console.log(action);
             state.signUp = action.payload
         },
         setLocation: (state, action) => {

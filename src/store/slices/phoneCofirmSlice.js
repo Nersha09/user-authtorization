@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit"
+
 const initialState = {
     phoneConfirm: {
         phone: '',
@@ -12,9 +13,6 @@ const phoneConfirmSlice = createSlice({
     reducers: {
         setPhoneConfirm: (state, action) => {
             state.phoneConfirm = action.payload
-            // state.phone = action.payload.phone
-            // state.password = action.payload.password
-
         }
     }
 });

@@ -1,29 +1,32 @@
 import {React, useState} from 'react'
-import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import { Button, TextField} from '@mui/material'
 
-import Container from '../componets/Container';
+import Container from '../componets/Container'
 import {setPhoneConfirm } from './../store/slices/phoneCofirmSlice'
 
 const PhoneConfirmForm = () => {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const phoneConfirm = useSelector(state => state.phoneConfirm.phoneConfirm)
+
     const [visible, setVisible] = useState(false)
     const [disabledForm, setDisabledForm] = useState(false)
 
-    const dispatch = useDispatch()
-    const phoneConfirm = useSelector(state => state.phoneConfirm.phoneConfirm)
-    
-    const navigate = useNavigate()
-
+    // Задает путь следующим этапам регистрации
     const handleSubmit = () => {
       navigate('/confirmReg')
     }
+
+    // Отрисовывет поле для подтвереждения телефона после ввода номера. 
+    // Устанавливает disabled полю для ввобда телефона и его кнопке
     const showForm = (e) => {
       e.preventDefault()
       if (phoneConfirm.phone) {
         setVisible(true)
         setDisabledForm(true)
-      };
+      }
     }
 
   return (

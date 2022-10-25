@@ -1,23 +1,21 @@
- import { Button, TextField } from '@mui/material';
-import {useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-
-import Container from './Container';
-import { setRegStep } from '../store/slices/stepSlice';
+import {useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { Button, TextField } from '@mui/material'
+import Container from './Container'
 
  const Form = ({array, setArray, path}) => {
     
-
     const navigate = useNavigate()
-    
-    const handleSubmit = () => {
+    const dispatch = useDispatch()
+
+// Задает путь следующим этапам регистрации
+    const handleSubmit = (e) => {
         navigate(`${path}`)
+        e.preventDefault()
     }
-
-    const dispatch = useDispatch();
-
+    
+// Обновляет гобальное состояние
     const changeValue = (value, index) => {
-
         let elements = [...array]
         let element = {...elements[index]}
         element.value = value
@@ -40,7 +38,7 @@ import { setRegStep } from '../store/slices/stepSlice';
                         onChange={(e) => changeValue(e.target.value, index)}
                     />
                 )}
-                    <Button 
+                    <Button
                         sx={{mt: '60px', alignSelf: 'end'}} 
                         type='submit' 
                         variant='contained'
