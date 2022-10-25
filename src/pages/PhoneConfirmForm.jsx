@@ -70,7 +70,7 @@ const PhoneConfirmForm = () => {
             type='submit'
             variant='contained'
           >
-            Зарегесрироваться
+            Зарегистрироваться
           </Button>
         </form>
       </div>
