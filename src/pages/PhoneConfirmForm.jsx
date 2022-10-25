@@ -1,24 +1,26 @@
-import { Button, TextField} from '@mui/material'
 import {React, useState} from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Button, TextField} from '@mui/material'
 
 import Container from '../componets/Container';
+import {setPhoneConfirm } from './../store/slices/phoneCofirmSlice'
 
 const PhoneConfirmForm = () => {
-    const [telConfirm, setTelConfirm] = useState({phone: '', password: ''});
-
     const [visible, setVisible] = useState(false)
     const [disabledForm, setDisabledForm] = useState(false)
 
+    const dispatch = useDispatch()
+    const phoneConfirm = useSelector(state => state.phoneConfirm.phoneConfirm)
+    
     const navigate = useNavigate()
 
     const handleSubmit = () => {
       navigate('/confirmReg')
     }
     const showForm = (e) => {
-      //разобраться с превентом и сабмитом
       e.preventDefault()
-      if (telConfirm.phone) {
+      if (phoneConfirm.phone) {
         setVisible(true)
         setDisabledForm(true)
       };
@@ -30,13 +32,13 @@ const PhoneConfirmForm = () => {
         <form className='phone-formactive'>
           <TextField 
             disabled={disabledForm}
-            value={telConfirm.phone}
+            value={phoneConfirm.phone}
             type='tel'
             name='phone'
             label='Введите номер телефона'
             required
             fullWidth 
-            onChange={e => setTelConfirm({...telConfirm, phone: e.target.value})}
+            onChange={e => dispatch(setPhoneConfirm({...phoneConfirm, phone: e.target.value}))}
           />
           <Button 
             disabled={disabledForm}
@@ -51,13 +53,13 @@ const PhoneConfirmForm = () => {
         </form>
         <form onSubmit={handleSubmit} className={`phone-form${visible ? '-active' : ''}`}>
           <TextField 
-            value={telConfirm.password}
+            value={phoneConfirm.password}
             name='password'
             label='Введите код'
             sx={{mt: '20px'}}
             fullWidth
             required
-            onChange={e => setTelConfirm({...telConfirm, password: e.target.value})}
+            onChange={e => dispatch(setPhoneConfirm({...phoneConfirm, password: e.target.value}))}
           />
           <Button 
             name='password'
