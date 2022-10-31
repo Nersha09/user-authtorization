@@ -8,7 +8,7 @@ const Container = ({children}) => {
             mb={5} 
             variant='h4'
         >
-                Регистрация
+              Регистрация
         </Typography>
         {children}
     </div>

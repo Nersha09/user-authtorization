@@ -1,6 +1,6 @@
 import React from 'react'
 import { Typography} from '@mui/material'
-import Container from '../componets/Container'
+import Container from '../components/Container'
 
 const ConfirmReg = () => {
   return (

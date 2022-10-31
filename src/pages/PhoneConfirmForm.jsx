@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Button, TextField} from '@mui/material'
 
-import Container from '../componets/Container'
+import Container from '../components/Container'
 import {setPhoneConfirm } from './../store/slices/phoneCofirmSlice'
 
 const PhoneConfirmForm = () => {

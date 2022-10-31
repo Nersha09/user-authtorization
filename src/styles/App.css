@@ -15,13 +15,14 @@
   border-radius: 10px;
   box-shadow: 0 0 8px 2px rgb(197, 197, 197);
   width: 450px;
-  height: 530px;
+  min-height: 530px;
 
   position: absolute;
-  top: calc(50% - 265px);
   left: 0;
   right: 0;
   margin: 0 auto;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 
 .input-form-direction {
